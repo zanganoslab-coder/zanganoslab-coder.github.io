@@ -222,6 +222,19 @@ mark {
 .footer-logo { width: 200px; height: auto; }
 .footer-grid p { margin: 0 0 4px; }
 
+/* ---------- Invitación a Instagram ---------- */
+.ig-cta {
+  display: flex; align-items: center; gap: 18px; margin-top: 28px; padding: 20px 24px;
+  background: var(--cafe); color: var(--blanco); border-radius: var(--radio); text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+.ig-cta:hover { transform: translateY(-2px); box-shadow: var(--sombra); }
+.ig-cta svg { color: var(--amarillo); flex: none; }
+.ig-cta b { display: block; font-size: 1.1rem; }
+.ig-cta span { font-size: .95rem; color: #e6dcd8; }
+.ig-cta b { color: var(--blanco); }
+.ig-flecha { margin-left: auto; font-size: 1.4rem; color: var(--amarillo) !important; }
+
 /* ---------- Animación al hacer scroll ---------- */
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.visible { opacity: 1; transform: none; }
