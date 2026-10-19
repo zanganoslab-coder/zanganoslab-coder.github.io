@@ -105,16 +105,22 @@ function renderPubs() {
 renderPubs();
 
 /* ---------- Noticias ---------- */
-$("#noticias-lista").innerHTML = NOTICIAS.map((n) => `
-  <article class="nota reveal">
-    <div class="franja"></div>
+function fechaLarga(iso) {
+  const [a, m, d] = iso.split("-").map(Number);
+  return new Date(a, m - 1, d).toLocaleDateString("es-AR", { day: "numeric", month: "long", year: "numeric" });
+}
+$("#noticias-lista").innerHTML = [...NOTICIAS].sort((a, b) => b.fecha.localeCompare(a.fecha)).map((n) => `
+  <a class="nota reveal" href="noticia.html?id=${encodeURIComponent(n.id)}">
+    ${n.fotos && n.fotos.length
+      ? `<img class="nota-portada" src="${esc(n.fotos[0])}" alt="" loading="lazy">`
+      : `<div class="franja"></div>`}
     <div class="nota-body">
-      <time>${esc(n.fecha)}</time>
+      <time datetime="${esc(n.fecha)}">${fechaLarga(n.fecha)}</time>
       <h3>${esc(n.titulo)}</h3>
-      <p>${esc(n.texto)}</p>
-      ${n.enlace ? `<p><a href="${esc(n.enlace)}" target="_blank" rel="noopener">Leer más ↗</a></p>` : ""}
+      <p>${esc(n.resumen)}</p>
+      <span class="nota-mas">Leer nota${n.fotos && n.fotos.length > 1 ? ` · ${n.fotos.length} fotos` : ""} →</span>
     </div>
-  </article>`).join("");
+  </a>`).join("");
 
 /* ---------- Pie y resaltado del menú ---------- */
 $("#anio").textContent = new Date().getFullYear();

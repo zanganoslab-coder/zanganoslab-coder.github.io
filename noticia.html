@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noticias | Zánganos Lab</title>
+  <meta name="description" content="Noticias y eventos de Zánganos Lab, laboratorio de investigación en zánganos de Apis mellifera.">
+  <meta name="theme-color" content="#301811">
+  <link rel="icon" href="img/logo/icono.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/logo/icono.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body id="top">
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Zánganos Lab, inicio">
+        <img src="img/logo/logo-horizontal.svg" alt="Zánganos Lab" width="170" height="70">
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="menu" class="menu">
+        <a href="index.html#nosotros">¿Quiénes somos?</a>
+        <a href="index.html#investigacion">Investigación</a>
+        <a href="index.html#equipo">Equipo</a>
+        <a href="index.html#publicaciones">Publicaciones</a>
+        <a href="index.html#noticias" class="activo">Noticias</a>
+        <a href="index.html#contacto" class="btn btn-small">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section articulo-wrap">
+    <article class="container articulo" id="articulo">
+      <!-- Se completa con js/noticia.js a partir de js/datos.js -->
+    </article>
+
+    <nav class="container otras" aria-label="Otras noticias">
+      <h2>Otras noticias</h2>
+      <div class="news" id="otras-noticias"></div>
+      <p><a class="btn btn-ghost" href="index.html#noticias">← Volver a todas las noticias</a></p>
+    </nav>
+  </main>
+
+  <!-- Visor de fotos ampliadas -->
+  <div class="visor" id="visor" hidden>
+    <button class="visor-cerrar" aria-label="Cerrar">✕</button>
+    <button class="visor-nav visor-ant" aria-label="Foto anterior">‹</button>
+    <img alt="">
+    <button class="visor-nav visor-sig" aria-label="Foto siguiente">›</button>
+    <p class="visor-contador"></p>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <img src="img/logo/logo-horizontal-fondo-oscuro.svg" alt="Zánganos Lab" class="footer-logo" width="200" height="82">
+      <div>
+        <p>Laboratorio de investigación en zánganos de <i>Apis mellifera</i>.</p>
+        <p>Seguinos en Instagram: <a href="https://www.instagram.com/zanganoslab.ier/" target="_blank" rel="noopener">@zanganoslab.ier</a></p>
+        <p>© <span id="anio"></span> Zánganos Lab · <a href="#top">Volver arriba ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/datos.js"></script>
+  <script src="js/noticia.js"></script>
+</body>
+</html>

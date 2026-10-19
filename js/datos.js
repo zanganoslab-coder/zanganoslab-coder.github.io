@@ -47,7 +47,7 @@ const EQUIPO = [
     grupo: "principal",
     nombre: "Alberto Galindo-Cardona",
     rol: "Investigador independiente CONICET · Director",
-    foto: "",
+    foto: "img/equipo/alberto-galindo.jpg",
     texto: "Interesado en ecología, comportamiento reproductivo y salud de las abejas melíferas. Desarrolla proyectos sobre comportamiento de zánganos, áreas de congregación, magnetorrecepción, monitoreo inteligente de colmenas y salud apícola, combinando tecnologías como RFID, drones, sensores ambientales y magnetometría.",
     email: "hymenopterino@gmail.com",
     researchgate: "https://www.researchgate.net/profile/Alberto-Galindo-Cardona"
@@ -56,7 +56,7 @@ const EQUIPO = [
     grupo: "principal",
     nombre: "Karen Escalante",
     rol: "Licenciada en Biología · Becaria doctoral CONICET",
-    foto: "",
+    foto: "img/equipo/karen-escalante.jpg",
     texto: "Trabaja en sanidad y genética de Apis mellifera en apiarios de Tucumán y sitios de apareamiento, analizando Varroosis, Nosemosis y diferentes especies de virus, además de la genética que prevalece en la provincia.",
     email: "karen.kmde@gmail.com",
     researchgate: "https://www.researchgate.net/profile/Karen-Escalante-2"
@@ -65,7 +65,7 @@ const EQUIPO = [
     grupo: "principal",
     nombre: "Harold Pulido-Guarín",
     rol: "Biólogo · Becario doctoral CONICET",
-    foto: "",
+    foto: "img/equipo/harold-pulido.jpg",
     texto: "Interesado en la ecología del paisaje y el comportamiento animal, especialmente en insectos y abejas nativas. Estudia la posible relación entre el campo magnético terrestre y las áreas de congregación de zánganos (DCAs) de Apis mellifera.",
     email: "hypg0315@gmail.com",
     researchgate: "https://www.researchgate.net/profile/Harold-Pulido-Guarin-2"
@@ -74,7 +74,7 @@ const EQUIPO = [
     grupo: "activos",
     nombre: "Ailen Araoz",
     rol: "Estudiante de Biología · Fac. Cs. Naturales e IML, UNT",
-    foto: "",
+    foto: "img/equipo/ailen-araoz.jpg",
     texto: "Su estudio se relaciona con el seguimiento de la actividad de zánganos de Apis mellifera y su relación con las condiciones ambientales.",
     email: "zanganoslab@gmail.com"
   },
@@ -82,7 +82,7 @@ const EQUIPO = [
     grupo: "activos",
     nombre: "Edgardo Díaz",
     rol: "Estudiante de Ingeniería Electrónica · FACET, UNT",
-    foto: "",
+    foto: "img/equipo/edgardo-diaz.jpg",
     texto: "Desarrolla un Kit Apícola tecnológico que permite el monitoreo remoto de colmenas de Apis mellifera.",
     email: "edgardordiaz95@gmail.com"
   },
@@ -90,7 +90,7 @@ const EQUIPO = [
     grupo: "activos",
     nombre: "Ailen Contreras",
     rol: "Estudiante de Biología · Fac. Cs. Naturales e IML, UNT",
-    foto: "",
+    foto: "img/equipo/ailen-contreras.jpg",
     texto: "Su estudio evalúa la morfometría de zánganos colectados en áreas de congregación (DCAs) de Apis mellifera.",
     email: "zanganoslab@gmail.com"
   },
@@ -256,24 +256,97 @@ const PUBLICACIONES = [
 ];
 
 /* ---------- Noticias ----------
-   Las más recientes primero. "enlace" es opcional (nota completa, Instagram, etc.). */
+   Cada noticia tiene su propia página (noticia.html?id=...). Para agregar una:
+   1. Creá una carpeta en img/noticias/ con las fotos numeradas: 01.jpg, 02.jpg, 03.jpg…
+   2. Copiá un bloque { ... } y completá:
+      id       → nombre corto sin espacios ni tildes (se usa en el enlace)
+      fecha    → año-mes-día, ej. "2026-09-11" (se ordenan solas, la más nueva primero)
+      resumen  → 1 o 2 frases para la tarjeta de la página principal
+      cuerpo   → el texto completo, un párrafo por cada "…"
+      fotos    → galeria("carpeta", cantidad, "extensión")
+      instagram → enlace a la publicación (opcional) */
+const galeria = (carpeta, cantidad, ext = "jpg") =>
+  Array.from({ length: cantidad }, (_, i) => `img/noticias/${carpeta}/${String(i + 1).padStart(2, "0")}.${ext}`);
+
 const NOTICIAS = [
   {
-    fecha: "13 de agosto",
-    titulo: "ZanganosLab participa en el 4.º Encuentro Apícola Federal de Tucumán",
-    texto: "Los pasados 13 y 14 de agosto nuestro equipo compartió ciencia e innovación en la Sociedad Rural de Tucumán. Presentamos nuestros avances en el uso de herramientas tecnológicas para la apicultura, y Edgardo Díaz presentó el \"Kit Apícola IoT\", un prototipo para el monitoreo remoto de colmenas.",
-    enlace: ""
+    id: "filapi-2026",
+    fecha: "2026-09-06",
+    titulo: "Zánganos Lab en el XVII Congreso Latinoamericano de Apicultura – FILAPI 2026",
+    resumen: "Del 31 de agosto al 6 de septiembre participamos del congreso FILAPI 2026 en Mar del Plata, compartiendo nuestro trabajo y generando nuevos vínculos de colaboración.",
+    cuerpo: [
+      "Del 31 de agosto al 6 de septiembre, el equipo del Laboratorio de Zánganos del IER-CONICET participó del XVII Congreso Latinoamericano de Apicultura – FILAPI 2026, realizado en la ciudad de Mar del Plata. El congreso reunió a investigadores, profesionales, productores, estudiantes, referentes, autoridades gubernamentales e instituciones del sector apícola.",
+      "Para nuestro laboratorio, este espacio representó una oportunidad para compartir el trabajo que desarrollamos, conocer otras investigaciones y generar nuevos vínculos y posibilidades de colaboración para futuras experiencias y proyectos.",
+      "Queremos agradecer especialmente al IER-CONICET, por el acompañamiento y respaldo a nuestro trabajo; al Laboratorio de Genética y Comportamiento de Abejas y otros insectos, por el intercambio y la colaboración; a la Sociedad Latinoamericana de Investigación en Abejas (SOLATINA), por la experiencia previa y el apoyo; y a los medios de comunicación y divulgación AM Apicultura, Ecos de la Colmena y La Miel en tu Radio, que nos brindaron su espacio para contar qué hacemos y por qué investigamos.",
+      "Nos llevamos nuevos conocimientos, preguntas, proyectos y encuentros que enriquecen nuestro camino. ¡Hasta la próxima!"
+    ],
+    fotos: galeria("filapi-2026", 15, "webp"),
+    instagram: "https://www.instagram.com/p/DdKyMHGjSf_/"
   },
   {
-    fecha: "9 de agosto",
+    id: "solatina-2026",
+    fecha: "2026-08-30",
+    titulo: "Premio a mejor póster en el VII Workshop de SOLATINA en Mar del Plata",
+    resumen: "Participamos del VII Workshop de la Sociedad Latinoamericana de Investigación en Abejas, donde Harold Pulido-Guarín obtuvo el premio a mejor póster del encuentro.",
+    cuerpo: [
+      "Zánganos Lab estuvo presente en el VII Workshop de la Sociedad Latinoamericana de Investigación en Abejas (SOLATINA), organizado los días 29 y 30 de agosto en la ciudad de Mar del Plata, Argentina.",
+      "Fue un espacio para generar conocimiento y colaboraciones hacia el futuro del estudio de las abejas en América Latina.",
+      "Agradecemos a los organizadores y felicitamos a Harold Pulido-Guarín por obtener el premio a mejor póster del encuentro."
+    ],
+    fotos: galeria("solatina-2026", 6),
+    instagram: "https://www.instagram.com/p/DcypUnnkT0j/"
+  },
+  {
+    id: "encuentro-apicola-2026",
+    fecha: "2026-08-13",
+    titulo: "Zánganos Lab participa en el 4.º Encuentro Apícola Federal de Tucumán",
+    resumen: "Compartimos ciencia e innovación en la Sociedad Rural de Tucumán, donde Edgardo Díaz presentó el Kit Apícola IoT para el monitoreo de colmenas.",
+    cuerpo: [
+      "Los pasados 13 y 14 de agosto, nuestro equipo estuvo compartiendo ciencia e innovación en la Sociedad Rural de Tucumán. Fue un espacio increíble para conectar con el sector productivo y mostrar cómo la tecnología puede revolucionar la apicultura.",
+      "Durante las jornadas presentamos nuestros avances en el uso de herramientas tecnológicas para optimizar el trabajo con las abejas. Además, Edgardo Díaz presentó el \"Kit Apícola IoT\", un prototipo innovador que permite el monitoreo de colmenas utilizando el Internet de las Cosas.",
+      "¡Felicitaciones a todo el equipo por el enorme esfuerzo, la dedicación y el excelente trabajo de divulgación!"
+    ],
+    fotos: galeria("encuentro-apicola-2026", 3),
+    instagram: "https://www.instagram.com/p/DcKMnouCZVo/"
+  },
+  {
+    id: "curso-apicultura-2026",
+    fecha: "2026-08-09",
     titulo: "Curso de iniciación en Apicultura",
-    texto: "Dictamos junto a IBN-CONICET e IER-CONICET un curso de iniciación a la apicultura dirigido por Alberto Galindo y Carlos Molineri. Aprendimos sobre diversidad y morfología de abejas, construimos trampas caza-enjambres y reconocimos las partes de una colmena.",
-    enlace: ""
+    resumen: "Junto a IBN-CONICET e IER-CONICET dictamos un curso de iniciación a la apicultura: diversidad de abejas, trampas caza-enjambres y partes de la colmena.",
+    cuerpo: [
+      "Compartimos un breve registro de las dos primeras prácticas de nuestro curso de iniciación a la apicultura, dictado en colaboración con el IBN-CONICET y el IER-CONICET, y dirigido por los investigadores Alberto Galindo y Carlos Molineri.",
+      "En la primera sesión aprendimos sobre diversidad y morfología de abejas, además de construir trampas caza-enjambres para Apis y abejas meliponas.",
+      "En la segunda sesión trabajamos el concepto de superorganismo y reconocimos las partes de una colmena.",
+      "Gracias a todos los que se siguen sumando a aprender y compartir esta pasión por las abejas y la ciencia. ¡Seguimos avanzando!"
+    ],
+    fotos: galeria("curso-apicultura-2026", 3),
+    instagram: "https://www.instagram.com/p/DbRTb8BCTia/"
   },
   {
-    fecha: "9 de junio",
+    id: "magnetometro-iar-2026",
+    fecha: "2026-06-09",
     titulo: "Señales magnéticas en la ruta de los zánganos: un desarrollo del IAR con sabor a interestelar",
-    texto: "El Dr. Alberto Galindo-Cardona viajó al Instituto Argentino de Radioastronomía (IAR), en el Parque Pereyra Iraola, para recoger un magnetómetro desarrollado especialmente para estudiar el campo magnético en las áreas de congregación de zánganos.",
-    enlace: ""
+    resumen: "Alberto Galindo-Cardona viajó al Instituto Argentino de Radioastronomía a buscar un magnetómetro diseñado para nuestro proyecto de áreas de congregación de zánganos.",
+    cuerpo: [
+      "El Dr. Alberto Galindo-Cardona viajó hasta el Instituto Argentino de Radioastronomía (IAR), ubicado en el Parque Pereyra Iraola, provincia de Buenos Aires. El instituto, que hace poco fue noticia por su participación en el desarrollo de un satélite desplegado por la misión Artemis de la NASA, lo recibió para un trabajo muy distinto pero igualmente fascinante.",
+      "El objetivo era recoger un magnetómetro desarrollado y construido íntegramente por el IAR, diseñado para nuestro proyecto de las Áreas de Congregación de Zánganos (ACZ). Este dispositivo permitirá medir y detectar anomalías magnéticas tanto en las ACZ como fuera de ellas, en tres ecorregiones de Argentina.",
+      "Esta labor forma parte de la beca doctoral de Harold Pulido-Guarín."
+    ],
+    fotos: galeria("magnetometro-iar-2026", 2),
+    instagram: ""
+  },
+  {
+    id: "curso-uruguay-2026",
+    fecha: "2026-06-01",
+    titulo: "Curso internacional de técnicas moleculares aplicadas a la salud de abejas melíferas",
+    resumen: "Harold Pulido-Guarín participó en Montevideo de un curso regional sobre detección de patógenos, viromas y transcriptómica en abejas.",
+    cuerpo: [
+      "El becario doctoral del Instituto de Ecología Regional (IER), Harold Pulido-Guarín, participó durante la primera semana de junio de 2026 en el curso \"Técnicas moleculares aplicadas al estudio de enfermedades y salud en abejas melíferas\", desarrollado en el Instituto de Investigaciones Biológicas Clemente Estable (IIBCE) en Montevideo, Uruguay. La participación fue posible gracias al financiamiento conjunto de la Universidad de las Naciones Unidas para Biotecnología en América Latina y el Caribe (UNU-BIOLAC) y la Sociedad Latinoamericana de Investigación en Abejas (SOLATINA).",
+      "El evento reunió a investigadores, becarios y estudiantes de posgrado de Argentina, Chile, Uruguay, Perú, Bolivia, Venezuela y México.",
+      "El curso duró seis días, con sesiones teóricas y prácticas intensivas organizadas en tres ejes: la detección y cuantificación de patógenos mediante PCR y PCR múltiplex; el análisis de viromas y microbioma intestinal de abejas mediante secuenciación masiva; y el uso de herramientas de transcriptómica para comprender la respuesta génica de las abejas frente a distintos patógenos."
+    ],
+    fotos: galeria("curso-uruguay-2026", 2),
+    instagram: ""
   }
 ];
