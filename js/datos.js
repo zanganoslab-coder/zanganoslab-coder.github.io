@@ -1,6 +1,6 @@
 /* ==========================================================
    CONTENIDO DEL SITIO
-   Para actualizar la web solo necesitás editar este archivo:
+   Para actualizar la web solo es necesario editar este archivo:
    agregar una persona, una publicación o una noticia es
    copiar un bloque { ... }, pegarlo y cambiar los textos.
    ========================================================== */
@@ -257,8 +257,8 @@ const PUBLICACIONES = [
 
 /* ---------- Noticias ----------
    Cada noticia tiene su propia página (noticia.html?id=...). Para agregar una:
-   1. Creá una carpeta en img/noticias/ con las fotos numeradas: 01.jpg, 02.jpg, 03.jpg…
-   2. Copiá un bloque { ... } y completá:
+   1. Cree una carpeta en img/noticias/ con las fotos numeradas: 01.jpg, 02.jpg, 03.jpg…
+   2. Copie un bloque { ... } y complete:
       id       → nombre corto sin espacios ni tildes (se usa en el enlace)
       fecha    → año-mes-día, ej. "2026-09-11" (se ordenan solas, la más nueva primero)
       resumen  → 1 o 2 frases para la tarjeta de la página principal

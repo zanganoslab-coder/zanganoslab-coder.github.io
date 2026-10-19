@@ -1,7 +1,7 @@
 /* ==========================================================
    Zánganos Lab — lógica del sitio
    (No hace falta tocar este archivo para cambiar contenido:
-   editá js/datos.js)
+   edite js/datos.js)
    ========================================================== */
 
 const $ = (sel) => document.querySelector(sel);

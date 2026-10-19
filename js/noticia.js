@@ -27,7 +27,7 @@ const n = NOTICIAS.find((x) => x.id === id);
 if (!n) {
   $("#articulo").innerHTML = `
     <h1>Noticia no encontrada</h1>
-    <p>Puede que el enlace esté incompleto. Mirá las últimas noticias más abajo.</p>`;
+    <p>Puede que el enlace esté incompleto. Consulte las últimas noticias más abajo.</p>`;
 } else {
   document.title = `${n.titulo} | Zánganos Lab`;
   document.querySelector('meta[name="description"]').setAttribute("content", n.resumen);
@@ -48,7 +48,7 @@ if (!n) {
       </div>` : ""}
     ${n.instagram ? `<a class="ig-cta" href="${esc(n.instagram)}" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor"/></svg>
-        <span><b>Ver la publicación en Instagram</b>Comentá y compartí en @zanganoslab.ier</span>
+        <span><b>Ver la publicación en Instagram</b>Comente y comparta en @zanganoslab.ier</span>
         <span class="ig-flecha" aria-hidden="true">↗</span>
       </a>` : ""}`;
 
